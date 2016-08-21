@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/"
+           xmlns:tns="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:9611/MailBotService.svc?xsd=xsd1"
+             namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="UserProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserProxy" nillable="true" type="tns:UserProxy" />
+  <xs:complexType name="TrackedFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateAndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrakingId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackedFault" nillable="true" type="tns:TrackedFault" />
+  <xs:complexType name="EmailAddressProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Owner" nillable="true" type="tns:UserProxy" />
+      <xs:element minOccurs="0" name="VerificationKey" nillable="true" type="tns:VerificationKeyProxy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailAddressProxy" nillable="true" type="tns:EmailAddressProxy" />
+  <xs:complexType name="VerificationKeyProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailAdress" nillable="true" type="tns:EmailAddressProxy" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VerificationKeyProxy" nillable="true" type="tns:VerificationKeyProxy" />
+  <xs:complexType name="ArrayOfMailMessageProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MailMessageProxy" nillable="true"
+                  type="tns:MailMessageProxy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMailMessageProxy" nillable="true" type="tns:ArrayOfMailMessageProxy" />
+  <xs:complexType name="MailMessageProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attachments" nillable="true" type="tns:ArrayOfAttachmentProxy" />
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Recipients" nillable="true" type="tns:ArrayOfEmailAddressProxy" />
+      <xs:element minOccurs="0" name="Sender" nillable="true" type="tns:EmailAddressProxy" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailMessageProxy" nillable="true" type="tns:MailMessageProxy" />
+  <xs:complexType name="ArrayOfAttachmentProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentProxy" nillable="true" type="tns:AttachmentProxy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttachmentProxy" nillable="true" type="tns:ArrayOfAttachmentProxy" />
+  <xs:complexType name="AttachmentProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contents" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Mail" nillable="true" type="tns:MailMessageProxy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AttachmentProxy" nillable="true" type="tns:AttachmentProxy" />
+  <xs:complexType name="ArrayOfEmailAddressProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailAddressProxy" nillable="true"
+                  type="tns:EmailAddressProxy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailAddressProxy" nillable="true" type="tns:ArrayOfEmailAddressProxy" />
+  <xs:complexType name="GroupProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupAddress" nillable="true" type="tns:EmailAddressProxy" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUserProxy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupProxy" nillable="true" type="tns:GroupProxy" />
+  <xs:complexType name="ArrayOfUserProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserProxy" nillable="true" type="tns:UserProxy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserProxy" nillable="true" type="tns:ArrayOfUserProxy" />
+</xs:schema>

@@ -1,0 +1,30 @@
+﻿<base:BackgroundCapableMetroWindow x:Class="MailBot.Client.Windows.Dialogues.AddMailboxWindow"
+                                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                   xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                                   xmlns:base="clr-namespace:MailBot.Client.Windows.Base"
+                                   Title="Link mailbox" Height="140" Width="360"
+                                   ResizeMode="NoResize"
+                                   WindowStartupLocation="CenterScreen"
+                                   Style="{StaticResource DefaultWindowStyle}"
+                                   Closing="AddMailboxWindow_OnClosing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Email address:" Style="{StaticResource MarginTextBlock}" />
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource DefaultTextBox}" Name="emailBox" />
+        <Button Content="Link" Grid.Row="2" Grid.Column="2"
+                Style="{StaticResource DefaultButton}"
+                Click="AddBoxClick" />
+    </Grid>
+</base:BackgroundCapableMetroWindow>

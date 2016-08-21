@@ -1,0 +1,86 @@
+﻿<base:BackgroundCapableMetroWindow x:Class="MailBot.Client.Windows.Main.MainWindow"
+                                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                   xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                                   xmlns:base="clr-namespace:MailBot.Client.Windows.Base"
+                                   Title="MailBot"
+                                   WindowState="Maximized"
+                                   Style="{StaticResource DefaultWindowStyle}"
+                                   WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="325" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Column="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" Margin="8,8,8,8" />
+            <ScrollViewer Grid.Row="1" FocusVisualStyle="{x:Null}" HorizontalScrollBarVisibility="Hidden"
+                          VerticalScrollBarVisibility="Visible">
+                <Grid FocusVisualStyle="{x:Null}" Style="{StaticResource MailPanelGrid}"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch" Focusable="False">
+                    <StackPanel Width="325"
+                                Name="threadStack"
+                                FocusVisualStyle="{x:Null}"
+                                Style="{StaticResource ThreadStack}"
+                                Focusable="False" />
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="56" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="6*" />
+            </Grid.RowDefinitions>
+            <Grid Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <WrapPanel Grid.Column="0" FlowDirection="LeftToRight">
+                        <Button Name="refreshButton"
+                                Style="{StaticResource DefaultCircleButton}"
+                                Width="40" Height="40" ToolTip="Refresh threadlist"
+                                Click="RefreshButton_OnClick">
+                            <Rectangle Fill="Black" MinWidth="14" MinHeight="14">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Visual="{StaticResource appbar_refresh}" Stretch="Fill" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel Grid.Column="1" FlowDirection="RightToLeft">
+                        <Button Name="logoutButton"
+                                Style="{StaticResource DefaultCircleButton}"
+                                Width="40" Height="40" ToolTip="Log out"
+                                Click="LogoutButton_OnClick">
+                            <Rectangle Fill="Black" MinWidth="14" MinHeight="14">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Visual="{StaticResource appbar_door_leave}" Stretch="Fill" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                        <Button Name="settingsButton"
+                                Style="{StaticResource DefaultCircleButton}"
+                                Width="40" Height="40" ToolTip="Settings"
+                                Click="SettingsButton_OnClick">
+                            <Rectangle Fill="Black" MinWidth="14" MinHeight="14">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Visual="{StaticResource appbar_settings}" Stretch="Fill" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Button>
+                    </WrapPanel>
+                </Grid>
+            </Grid>
+            <Grid Row="2" Name="concreteMailGrid" />
+        </Grid>
+    </Grid>
+</base:BackgroundCapableMetroWindow>

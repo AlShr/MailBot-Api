@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+                  xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/"
+                  xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+                  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+                  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MailBotService"
+                  targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:9611/MailBotService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:9611/MailBotService.svc?xsd=xsd2"
+                  namespace="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" />
+      <xsd:import schemaLocation="http://localhost:9611/MailBotService.svc?xsd=xsd1"
+                  namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:9611/MailBotService.svc?xsd=xsd3"
+                  namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMailBotService_AuthenticateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_AuthenticateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_AuthenticateUser_TrackedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" name="detail"
+               element="q1:TrackedFault" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_AddEmailAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmailAddress" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_AddEmailAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmailAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_VerifyEmailAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEmailAddress" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_VerifyEmailAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEmailAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_ConfirmVerificationCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmVerificationCode" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_ConfirmVerificationCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmVerificationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_GetAllMessagesForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMessagesForUser" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_GetAllMessagesForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMessagesForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_GetUserMailboxes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMailboxes" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_GetUserMailboxes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMailboxesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_RegesterGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegesterGroup" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_RegesterGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegesterGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_IsServiceConfigured_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsServiceConfigured" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_IsServiceConfigured_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsServiceConfiguredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_SearchInMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchInMessages" />
+  </wsdl:message>
+  <wsdl:message name="IMailBotService_SearchInMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchInMessagesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMailBotService">
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/AuthenticateUser"
+                  message="tns:IMailBotService_AuthenticateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/AuthenticateUserResponse"
+                   message="tns:IMailBotService_AuthenticateUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMailBotService/AuthenticateUserTrackedFaultFault"
+                  name="TrackedFaultFault"
+                  message="tns:IMailBotService_AuthenticateUser_TrackedFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/RegisterUser"
+                  message="tns:IMailBotService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/RegisterUserResponse"
+                   message="tns:IMailBotService_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmailAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/AddEmailAddress"
+                  message="tns:IMailBotService_AddEmailAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/AddEmailAddressResponse"
+                   message="tns:IMailBotService_AddEmailAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEmailAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/VerifyEmailAddress"
+                  message="tns:IMailBotService_VerifyEmailAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/VerifyEmailAddressResponse"
+                   message="tns:IMailBotService_VerifyEmailAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmVerificationCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/ConfirmVerificationCode"
+                  message="tns:IMailBotService_ConfirmVerificationCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/ConfirmVerificationCodeResponse"
+                   message="tns:IMailBotService_ConfirmVerificationCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessagesForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/GetAllMessagesForUser"
+                  message="tns:IMailBotService_GetAllMessagesForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/GetAllMessagesForUserResponse"
+                   message="tns:IMailBotService_GetAllMessagesForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMailboxes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/GetUserMailboxes"
+                  message="tns:IMailBotService_GetUserMailboxes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/GetUserMailboxesResponse"
+                   message="tns:IMailBotService_GetUserMailboxes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegesterGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/RegesterGroup"
+                  message="tns:IMailBotService_RegesterGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/RegesterGroupResponse"
+                   message="tns:IMailBotService_RegesterGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsServiceConfigured">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/IsServiceConfigured"
+                  message="tns:IMailBotService_IsServiceConfigured_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/IsServiceConfiguredResponse"
+                   message="tns:IMailBotService_IsServiceConfigured_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchInMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMailBotService/SearchInMessages"
+                  message="tns:IMailBotService_SearchInMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMailBotService/SearchInMessagesResponse"
+                   message="tns:IMailBotService_SearchInMessages_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMailBotService" type="tns:IMailBotService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="TrackedFaultFault">
+        <soap:fault use="literal" name="TrackedFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmailAddress">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/AddEmailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEmailAddress">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/VerifyEmailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmVerificationCode">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/ConfirmVerificationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessagesForUser">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/GetAllMessagesForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMailboxes">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/GetUserMailboxes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegesterGroup">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/RegesterGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsServiceConfigured">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/IsServiceConfigured" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchInMessages">
+      <soap:operation soapAction="http://tempuri.org/IMailBotService/SearchInMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MailBotService">
+    <wsdl:port name="BasicHttpBinding_IMailBotService" binding="tns:BasicHttpBinding_IMailBotService">
+      <soap:address location="http://localhost:9611/MailBotService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,46 @@
+﻿<controls:MetroWindow x:Class="MailFetchingTool.ConcreteMailViewer"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+                      Title="Mail Fetcher"
+                      Height="600"
+                      Width="400"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Style="{StaticResource DefaultMargin}" Text="From" />
+            <TextBox Name="fromBox" IsReadOnly="True" Style="{StaticResource PanelControlWithMargin}" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock Style="{StaticResource DefaultMargin}" Text="Sender" />
+            <TextBox Name="senderBox" Style="{StaticResource PanelControlWithMargin}" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <TextBlock Style="{StaticResource DefaultMargin}" Text="CC" />
+            <TextBox Name="ccBox" IsReadOnly="True" Style="{StaticResource PanelControlWithMargin}" />
+        </Grid>
+        <Grid Grid.Row="3">
+            <TextBlock Style="{StaticResource DefaultMargin}" Text="BCC" />
+            <TextBox Name="bccBox" IsReadOnly="True" Style="{StaticResource PanelControlWithMargin}" />
+        </Grid>
+        <Grid Grid.Row="4">
+            <TextBlock Style="{StaticResource DefaultMargin}" Text="Subject" />
+            <TextBox Name="subjectBox" IsReadOnly="True" Style="{StaticResource PanelControlWithMargin}" />
+        </Grid>
+        <Grid Grid.Row="5">
+            <TextBlock Style="{StaticResource DefaultMargin}" Text="Priority" />
+            <TextBox Name="priorityBox" IsReadOnly="True" Style="{StaticResource PanelControlWithMargin}" />
+        </Grid>
+    </Grid>
+</controls:MetroWindow>

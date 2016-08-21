@@ -1,0 +1,73 @@
+﻿<controls:MetroWindow x:Class="MailFetchingTool.MailFetchingWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+                      Title="Mail Fetcher"
+                      Height="600"
+                      Width="800"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="9*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Style="{StaticResource DefaultMargin}" Text="Protocol" />
+                <ComboBox Style="{StaticResource PanelControlWithMargin}" Grid.Column="0"
+                          ItemsSource="{Binding Path=ProtocolList}" SelectedValuePath="Value"
+                          DisplayMemberPath="Description" SelectedValue="{Binding Path=Protocol}" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Style="{StaticResource DefaultMargin}" Text="Host" />
+                <TextBox
+                    Style="{StaticResource PanelControlWithMargin}"
+                    Name="textboxHost"
+                    Text="{Binding Path=Host, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+            </Grid>
+            <Grid Grid.Column="2">
+                <TextBlock Style="{StaticResource DefaultMargin}" Text="Port" />
+                <TextBox Style="{StaticResource PanelControlWithMargin}"
+                         Name="textboxPort"
+                         Text="{Binding Path=Port, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+            </Grid>
+            <Grid Grid.Column="3">
+                <TextBlock Style="{StaticResource DefaultMargin}" Text="Username" />
+                <TextBox Style="{StaticResource PanelControlWithMargin}"
+                         Name="textboxMailbox"
+                         Text="{Binding Path=Username, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+            </Grid>
+            <Grid Grid.Column="4">
+                <TextBlock Style="{StaticResource DefaultMargin}" Text="Password" />
+                <PasswordBox Style="{StaticResource PanelControlWithMargin}"
+                             Name="textboxPassword" />
+            </Grid>
+            <Grid Column="5">
+                <Button Content="Fetch" Style="{StaticResource DefaultMargin}" Click="Button_Fetch_Click"
+                        Name="buttonFetch" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid x:Name="fetchingProgressOverlay" ZIndex="1000" Visibility="Collapsed">
+                <Viewbox MaxHeight="50" MaxWidth="50">
+                    <controls:ProgressRing x:Name="fetchingProgressRing"
+                                           Foreground="{DynamicResource AccentColorBrush}" IsActive="True" Width="50" />
+                </Viewbox>
+            </Grid>
+            <ScrollViewer Style="{StaticResource DefaultMargin}" CanContentScroll="True">
+                <WrapPanel Name="messagesWrapPanel" Orientation="Horizontal" />
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</controls:MetroWindow>

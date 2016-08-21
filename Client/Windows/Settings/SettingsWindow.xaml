@@ -1,0 +1,83 @@
+﻿<base:BackgroundCapableMetroWindow x:Class="MailBot.Client.Windows.Settings.SettingsWindow"
+                                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                   xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                                   xmlns:base="clr-namespace:MailBot.Client.Windows.Base"
+                                   Title="Settings" Height="600" Width="600"
+                                   WindowStartupLocation="CenterScreen"
+                                   Style="{StaticResource DefaultWindowStyle}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MaxWidth="260" />
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1" Style="{StaticResource DefaultSplitter}" />
+        <!-- Left side -->
+        <Grid Grid.Column="0" Name="leftGrid">
+            <StackPanel Margin="8,8,8,8">
+                <Expander Header="General"
+                          Style="{StaticResource MetroExpander}"
+                          IsExpanded="false">
+                    <ListView>
+                        <ListViewItem Content="General" />
+                        <ListViewItem Content="Dummy1" />
+                        <ListViewItem Content="Dummy2" />
+                        <ListViewItem Content="Dummy3" />
+                        <ListViewItem Content="Dummy4" />
+                    </ListView>
+                </Expander>
+                <Expander Header="User settings"
+                          Style="{StaticResource MetroExpander}"
+                          IsExpanded="false">
+                    <ListView>
+                        <ListViewItem Content="User info"
+                                      Name="listItemUserStatus"
+                                      MouseUp="ListViewItemClickHandler" />
+                        <ListViewItem Content="Mailboxes"
+                                      Name="listItemMailBoxes"
+                                      MouseUp="ListViewItemClickHandler" />
+                    </ListView>
+                </Expander>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="2" Name="rightGrid">
+            <Grid Name="gridMailboxes" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row="0"
+                          Header="Mailboxes"
+                          BorderBrush="{StaticResource AccentColorBrush3}">
+                    <ListView Name="listView" />
+                </GroupBox>
+                <Button Grid.Row="1"
+                        Style="{StaticResource DefaultButton}"
+                        Click="AddMailboxButtonClick"
+                        Content="add" />
+            </Grid>
+            <Grid Name="gridUserSettings" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <WrapPanel>
+                        <TextBlock Name="userSettingsName"
+                                   Text="Currently logged in as "
+                                   Style="{StaticResource MailSenderTextBlock}" />
+                        <TextBlock Text="Expand to explore additional options."
+                                   Style="{StaticResource MailSenderTextBlock}" />
+                    </WrapPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</base:BackgroundCapableMetroWindow>

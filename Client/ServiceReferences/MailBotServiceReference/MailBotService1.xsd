@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:9611/MailBotService.svc?xsd=xsd2"
+             namespace="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" />
+  <xs:import schemaLocation="http://localhost:9611/MailBotService.svc?xsd=xsd3"
+             namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="AuthenticateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="credentials" nillable="true" type="q1:UserProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="AuthenticateUserResult" nillable="true" type="q2:UserProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="credentials" nillable="true" type="q3:UserProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="RegisterUserResult" nillable="true" type="q4:UserProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmailAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="credentials" nillable="true" type="q5:UserProxy" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmailAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="AddEmailAddressResult" nillable="true" type="q6:EmailAddressProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyEmailAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="userInfo" nillable="true" type="q7:UserProxy" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyEmailAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="VerifyEmailAddressResult" nillable="true" type="q8:VerificationKeyProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmVerificationCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmVerificationCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConfirmVerificationCodeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMessagesForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="userInfo" nillable="true" type="q9:UserProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMessagesForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="GetAllMessagesForUserResult" nillable="true" type="q10:ArrayOfMailMessageProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserMailboxes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="proxy" nillable="true" type="q11:UserProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserMailboxesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="GetUserMailboxesResult" nillable="true" type="q12:ArrayOfEmailAddressProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegesterGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegesterGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="RegesterGroupResult" nillable="true" type="q13:GroupProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsServiceConfigured">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsServiceConfiguredResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsServiceConfiguredResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchInMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchQuery" nillable="true" type="xs:string" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fields"
+                    nillable="true" type="q14:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchInMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MailBot.Service.MailBotServiceDTO" minOccurs="0"
+                    name="SearchInMessagesResult" nillable="true" type="q15:ArrayOfMailMessageProxy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

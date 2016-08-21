@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7e0d9e69-6188-48e6-acac-01102bfe03cd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9611/MailBotService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MailBotService.wsdl" MetadataType="Wsdl" ID="010c7fd5-6b05-42f1-9916-bc6d2df7cf07" SourceId="1" SourceUrl="http://localhost:9611/MailBotService.svc?wsdl" />
+    <MetadataFile FileName="MailBotService.xsd" MetadataType="Schema" ID="0676aff4-6f2f-4cf9-89fd-27a90a9473c9" SourceId="1" SourceUrl="http://localhost:9611/MailBotService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MailBotService1.xsd" MetadataType="Schema" ID="181de291-52f7-40af-a53a-4ba76372b1dc" SourceId="1" SourceUrl="http://localhost:9611/MailBotService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MailBotService3.xsd" MetadataType="Schema" ID="2c818d7b-587b-449e-a162-8d47c2cbb91a" SourceId="1" SourceUrl="http://localhost:9611/MailBotService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MailBotService2.xsd" MetadataType="Schema" ID="448512fb-2b7c-4102-854b-782e3f79f891" SourceId="1" SourceUrl="http://localhost:9611/MailBotService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MailBotService.disco" MetadataType="Disco" ID="bfaa01f6-3cd8-44c1-9fc7-d0721cba8e0d" SourceId="1" SourceUrl="http://localhost:9611/MailBotService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

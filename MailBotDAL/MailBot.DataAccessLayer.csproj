@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBB45CF2-9929-4C09-B9D0-2E3C871A6413}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MailBot.DataAccessLayer</RootNamespace>
+    <AssemblyName>MailBot.DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.3.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate.Search, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e05025044aa97d32, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.Search.MB.4.0.3.4000\lib\net40\NHibernate.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayer\BusinessEntity\EmailAddressEntity.cs" />
+    <Compile Include="BusinessLayer\BusinessEntity\GroupEntity.cs" />
+    <Compile Include="BusinessLayer\BusinessEntity\MailEntity.cs" />
+    <Compile Include="BusinessLayer\BusinessEntity\MessageIdEntity.cs" />
+    <Compile Include="BusinessLayer\BusinessEntity\VerificationKeyEntity.cs" />
+    <Compile Include="BusinessLayer\BusinessEntity\UserEntity.cs" />
+    <Compile Include="DomainDAL\IEmailAddressDAL.cs" />
+    <Compile Include="DomainDAL\IGroupDAL.cs" />
+    <Compile Include="DomainDAL\IMailDAL.cs" />
+    <Compile Include="DomainDAL\IMessageIdDAL.cs" />
+    <Compile Include="DomainDAL\IVerificationKeyDAL.cs" />
+    <Compile Include="DomainDAL\MailBotDALFactory.cs" />
+    <Compile Include="DomainDAL\AttachmentDAO.cs" />
+    <Compile Include="DomainDAL\EmailAddressDao.cs" />
+    <Compile Include="DomainDAL\GroupDAO.cs" />
+    <Compile Include="DomainDAL\IMailBotDALFactory.cs" />
+    <Compile Include="DomainDAL\IUserDAL.cs" />
+    <Compile Include="DomainDAL\MailDAO.cs" />
+    <Compile Include="DomainDAL\MessageIdDao.cs" />
+    <Compile Include="DomainDAL\ReferencesDao.cs" />
+    <Compile Include="DomainDAL\UserDAO.cs" />
+    <Compile Include="DomainDAL\VerificationKeyDao.cs" />
+    <Compile Include="Mapping\AttachmentMapping.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Mapping\EmailAddressMapping.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Mapping\GroupMapping.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Mapping\MailMapping.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Mapping\MessageIdMapping.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Mapping\ReferencesMapping.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Mapping\UserMapping.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Mapping\VerificationKeyMapping.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWorkHelpers\GerericTransaction.cs" />
+    <Compile Include="UnitOfWorkHelpers\IGenericTransaction.cs" />
+    <Compile Include="UnitOfWorkHelpers\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWorkHelpers\IUnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWorkHelpers\IUnitOfWorkImplementor.cs" />
+    <Compile Include="UnitOfWorkHelpers\UnitOfWork.cs" />
+    <Compile Include="UnitOfWorkHelpers\UnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWorkHelpers\UnitOfWorkImplementor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MailBotSecurity\MailBot.Security.csproj">
+      <Project>{2D2CA40C-E3B2-46DD-B6B7-F0311466E2F4}</Project>
+      <Name>MailBot.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
